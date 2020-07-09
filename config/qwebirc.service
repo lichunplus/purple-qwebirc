@@ -1,0 +1,18 @@
+[Unit]
+Description=qwebirc daemon
+After=syslog.target
+
+[Service]
+EnvironmentFile=-/etc/sysconfig/qwebirc
+WorkingDirectory=/usr/local/purple-qwebirc/
+Type=simple
+ExecStart=/usr/bin/python2.7 /usr/local/purple-qwebirc/run.py --syslog --pidfile=/tmp/qwebirc.pid
+PIDFile=/tmp/qwebirc.pid
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+User=qwebirc
+Group=purple
+
+[Install]
+WantedBy=multi-user.target
