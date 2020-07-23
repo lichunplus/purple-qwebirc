@@ -24,7 +24,7 @@ cp -rf %{rootfs}/* $RPM_BUILD_ROOT/
 %pre
 getent group purple >/dev/null || groupadd -f -r purple
 if ! getent passwd qwebirc >/dev/null; then
-  useradd -r -g qwebirc -G purple -d / -s /sbin/nologin -c "qwebirc user" qwebirc
+  useradd -r -G purple -d / -s /sbin/nologin -c "qwebirc user" qwebirc
 fi
 exit 0
 

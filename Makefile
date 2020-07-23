@@ -9,9 +9,13 @@ RPMBUILD_DIR = ${PURPLE_QWEBIRC_ROOT}/rpmbuild
 RPM_PKGNAME = $(NAME)-$(VERSION).rpm
 
 all:
+	@make clean
 	@mkdir -p ${BUILD_DIR}
 	@cp -r ./qwebirc-b13bdf3/* ${BUILD_DIR}
 	@cp ./config/config.py ${BUILD_DIR}
+	cp ./config/website/css/* ${BUILD_DIR}/css/
+	cp ./config/website/images/* ${BUILD_DIR}/static/images/
+	cp ./config/website/panes/* ${BUILD_DIR}/static/panes/
 	cd ${BUILD_DIR} && python2 compile.py 
 
 help:

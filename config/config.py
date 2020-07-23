@@ -18,7 +18,8 @@ from qwebirc.config_options import *
 #         Hostname (or IP address) of IRC server to connect to.
 # OPTION: IRCPORT
 #         Port of IRC server to connect to.
-IRCSERVER, IRCPORT = "irc.myserver.com", 6667
+#IRCSERVER, IRCPORT = "irc.myserver.com", 6667
+IRCSERVER, IRCPORT = "localhost", 6667
 
 # OPTION: SSLPORT
 #         SSL port of IRC server to connect to.
@@ -27,7 +28,7 @@ IRCSERVER, IRCPORT = "irc.myserver.com", 6667
 
 # OPTION: REALNAME
 #         The realname field of IRC clients will be set to this value.
-REALNAME = "http://moo.com/"
+REALNAME = "http://smb.cn/"
 
 # OPTION: IDENT
 #        ident to use on irc, possible values include:
@@ -90,7 +91,7 @@ WEBIRC_MODE = None
 # OPTION: BASE_URL
 #         URL that this qwebirc instance will be available at, add the
 #         port number if your instance runs on a port other than 80.
-BASE_URL = "http://foo.foo.org/"
+BASE_URL = "http://smb.cn/"
 
 # OPTION: NETWORK_NAME
 #         The name of your IRC network, displayed throughout the
@@ -107,7 +108,7 @@ NETWORK_NAME = "FooNet"
 # OPTION: CUSTOM_CSS
 #         Filename of custom css to include.
 #         Must be in the css directory.
-#CUSTOM_CSS="mynetwork.css"
+CUSTOM_CSS="main.css"
 
 # OPTION: ANALYTICS_HTML
 #         If you have an analytics service, you can paste the HTML
@@ -118,13 +119,12 @@ NETWORK_NAME = "FooNet"
 # OPTION: CUSTOM_MENU_ITEMS
 #         Adds custom URLs to the top left menu.
 #CUSTOM_MENU_ITEMS = [
-#  ["Help!", "http://www.my.help.site.example/"],
-#  ["Privacy policy", "http://www.privacy.policy.example/"],
+#  ["home", "/panes/home.html"],
 #]
 
 # OPTION: APP_TITLE
 #         The title of the application in the web browser.
-APP_TITLE = NETWORK_NAME + " Web IRC"
+APP_TITLE = NETWORK_NAME + " Room"
 
 # NICKNAME VALIDATION OPTIONS
 # ---------------------------------------------------------------------
@@ -133,7 +133,7 @@ APP_TITLE = NETWORK_NAME + " Web IRC"
 #         If True then user nicknames will be validated according to
 #         the configuration below, otherwise they will be passed
 #         directly to the ircd.
-NICKNAME_VALIDATE = True
+NICKNAME_VALIDATE = False
 
 # OPTION: NICKNAME_VALID_FIRST_CHAR
 #         A string containing valid characters for the first letter of
