@@ -10,6 +10,87 @@ qwebirc.ui.themes.ThemeControlCodeMap = {
   "$": "$"
 };
 
+qwebirc.ui.themes.Purple = {
+  "PREFIX": ["$C4==$O "],
+  "SIGNON": ["登入成功!", true],
+  "CONNECTING": ["正在连接服务器, 请稍后...", true],
+  "CONNECT": ["登入中, 请稍后...", true],
+  "CONNECTED": ["登入成功!", true],
+  "RAW": ["$m", true],
+  "DISCONNECT": ["连接已断开: $m", true],
+  "ERROR": ["错误: $m", true],
+  "SERVERNOTICE": ["$m", true],
+  "JOIN": ["${$N$} 加入频道 $c", true],
+  "OURJOIN": ["${$N$} 加入频道 $c", true],
+  "PART": ["${$N$} 离开频道 $c [$m]", true],
+  "KICK": ["${$v$} 被管理员 ${$N$} 踢出频道 $c", true],
+  "MODE": ["mode/$c [$m] by ${$N$}", true],
+  "QUIT": ["${$N$} 离开频道 $c", true],
+  "NICK": ["${$n$} 将昵称修改为 ${$[$w$]$}", true],
+  "TOPIC": ["${$N$} 将频道$c 的主题修改为: $m", true],
+  "UMODE": ["Usermode change: $m", true],
+  "INVITE": ["$N invites you to join $c", true],
+  "HILIGHT": ["$C4"],
+  "HILIGHTEND": ["$O"],
+  "CHANMSG": ["<$C14$@$O${$($N$)$}> $m"],
+  "PRIVMSG": ["<$($N$)> $m"],
+  "CHANNOTICE": ["-${$($N$)$}:$c- $m"],
+  "PRIVNOTICE": ["-$($N$)- $m"],
+  "OURCHANMSG": ["<$C14$@$O$U$N$O> $m"],
+  "OURPRIVMSG": ["<$U$N$O> $m"],
+  "OURTARGETEDMSG": ["*$[$t$]* $m"],
+  "OURTARGETEDNOTICE": ["[notice($[$t$])] $m"],
+  "OURCHANNOTICE": ["-$N:$t- $m"],
+  "OURPRIVNOTICE": ["-$N- $m"],
+  "OURCHANACTION": [" * $U$N$O $m"],
+  "OURPRIVACTION": [" * $U$N$O $m"],
+  "CHANACTION": [" * ${$($N$)$} $m"],
+  "PRIVACTION": [" * $($N$) $m"],
+  "CHANCTCP": ["$N [$h] requested CTCP $x from $c: $m"],
+  "PRIVCTCP": ["$N [$h] requested CTCP $x from $-: $m"],
+  "CTCPREPLY": ["CTCP $x reply from $N: $m"],
+  "OURCHANCTCP": ["[ctcp($t)] $x $m"],
+  "OURPRIVCTCP": ["[ctcp($t)] $x $m"],
+  "OURTARGETEDCTCP": ["[ctcp($t)] $x $m"],
+  "WHOISUSER": ["$B$N$B [$h]", true],
+  "WHOISREALNAME": [" realname : $m", true],
+  "WHOISCHANNELS": [" channels : $m", true],
+  "WHOISSERVER": [" server   : $x [$m]", true],
+  "WHOISACCOUNT": [" account  : qwebirc://qwhois/$m", true],
+  "WHOISIDLE": [" idle     : $x [connected: $m]", true],
+  "WHOISAWAY": [" away     : $m", true],
+  "WHOISOPER": ["          : $BIRC Operator$B", true],
+  "WHOISOPERNAME": [" operedas : $m", true],
+  "WHOISACTUALLY": [" realhost : $m [ip: $x]", true],
+  "WHOISGENERICTEXT": ["          : $m", true],
+  "WHOISEND": ["End of WHOIS", true],
+  "AWAY": ["$N is away: $m", true],
+  "GENERICERROR": ["$m: $t", true],
+  "GENERICMESSAGE": ["$m", true],
+  "WALLOPS": ["WALLOP $n: $t", true],
+  "CHANNELCREATIONTIME": ["Channel $c was created at: $m", true],
+  "CHANNELMODEIS": ["Channel modes on $c are: $m", true],
+  "IGNORED": ["Ignored $n, to unignore type: /UNIGNORE $n", false],
+  "UNIGNORED": ["Unignored $n.", false],
+  "IGNOREHEADER": ["Ignore list:", false],
+  "IGNOREENTRY": ["- $h", false],
+  "IGNOREEMPTY": ["Ignore list is empty.", false],
+  "SILENCE": ["Silenced: $h", false],
+
+  "NOTIFYCHANMSGTITLE": ["Mentioned on $c:", false],
+  "NOTIFYCHANMSGBODY": ["<$@$n> $m", false],
+  "NOTIFYCHANACTIONTITLE": ["Mentioned on $c:", false],
+  "NOTIFYCHANACTIONBODY": [" * $n $m", false],
+  "NOTIFYPRIVMSGTITLE": ["Private message from $n:", false],
+  "NOTIFYPRIVMSGBODY": ["$m", false],
+  "NOTIFYPRIVACTIONTITLE": ["Private message from $n:", false],
+  "NOTIFYPRIVACTIONBODY": [" * $n $m", false],
+  "NOTIFYCHANNOTICETITLE": ["Mentioned on $c:", false],
+  "NOTIFYCHANNOTICEBODY": ["-$n- $m", false],
+  "NOTIFYPRIVNOTICETITLE": ["Private notice from $n:", false],
+  "NOTIFYPRIVNOTICEBODY": ["$m", false]
+};
+
 qwebirc.ui.themes.Default = {
   "PREFIX": ["$C4==$O "],
   "SIGNON": ["Signed on!", true],
@@ -93,8 +174,12 @@ qwebirc.ui.themes.Default = {
 
 qwebirc.ui.Theme = new Class({
   initialize: function(themeDict) {
-    this.__theme = qwebirc.util.dictCopy(qwebirc.ui.themes.Default);
-    
+    if($defined(qwebirc.ui.themes.Purple)) {
+      this.__theme = qwebirc.util.dictCopy(qwebirc.ui.themes.Purple);
+    } else {
+      this.__theme = qwebirc.util.dictCopy(qwebirc.ui.themes.Default);
+    }
+
     if(themeDict)
       for(var k in themeDict)
         this.__theme[k] = themeDict[k];

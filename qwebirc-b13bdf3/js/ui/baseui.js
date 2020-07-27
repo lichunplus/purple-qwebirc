@@ -1,3 +1,5 @@
+qwebirc.ui.PURPLE_DISCLAIMER = "";
+
 qwebirc.ui.WINDOW_STATUS =   0x01;
 qwebirc.ui.WINDOW_QUERY =    0x02;
 qwebirc.ui.WINDOW_CHANNEL =  0x04;
@@ -66,14 +68,16 @@ qwebirc.ui.BaseUI = new Class({
     }.bind(this));
     this.windows.put(client.id, new QHash());
     this.clients.put(client.id, client);
-    var w = this.newWindow(client, qwebirc.ui.WINDOW_STATUS, "Status");
+    var w = this.newWindow(client, qwebirc.ui.WINDOW_STATUS, "系统消息");
     this.selectWindow(w);
     if(!this.firstClient) {
       this.firstClient = true;
-      w.addLine("", "qwebirc v" + qwebirc.VERSION);
-      w.addLine("", "Copyright (C) 2008-2019 Chris Porter and the qwebirc project.");
-      w.addLine("", "http://www.qwebirc.org");
-      w.addLine("", "Licensed under the GNU General Public License, Version 2.");
+      if(!$defined(qwebirc.ui.PURPLE_DISCLAIMER)) {
+        w.addLine("", "qwebirc v" + qwebirc.VERSION);
+        w.addLine("", "Copyright (C) 2008-2019 Chris Porter and the qwebirc project.");
+        w.addLine("", "http://www.qwebirc.org");
+        w.addLine("", "Licensed under the GNU General Public License, Version 2.");
+      }
     }
     return w;
   },
@@ -215,7 +219,8 @@ qwebirc.ui.BaseUI = new Class({
   loginBox: function(callback, initialNickname, initialChannels, autoConnect, autoNick) {
     this.postInitialize();
 
-    this.addCustomWindow("Connect", qwebirc.ui.ConnectPane, "connectpane", {
+    /* this.addCustomWindow("Connect", qwebirc.ui.ConnectPane, "connectpane", { */
+    this.addCustomWindow("主页", qwebirc.ui.ConnectPane, "connectpane", {
       initialNickname: initialNickname, initialChannels: initialChannels, autoConnect: autoConnect, callback: callback, autoNick: autoNick,
       uiOptions: this.options
     }, qwebirc.ui.WINDOW_CONNECT);
@@ -413,7 +418,8 @@ qwebirc.ui.StandardUI = new Class({
     }.bind(this)});
   },
   optionsWindow: function() {
-    this.addCustomWindow("Options", qwebirc.ui.OptionsPane, "optionspane", this.uiOptions);
+    /* this.addCustomWindow("Options", qwebirc.ui.OptionsPane, "optionspane", this.uiOptions); */
+    this.addCustomWindow("设置", qwebirc.ui.OptionsPane, "optionspane", this.uiOptions);
   },
   aboutWindow: function() {
     this.addCustomWindow("About qwebirc", qwebirc.ui.AboutPane, "aboutpane", this.uiOptions);
@@ -431,7 +437,8 @@ qwebirc.ui.StandardUI = new Class({
         if(this.uiOptions.QUERY_ON_NICK_CLICK) {
           window.client.exec("/QUERY " + nick);
         } else {
-          window.client.exec("/WHOIS " + nick);
+          /* window.client.exec("/WHOIS " + nick);*/
+          window.client.exec("/QUERY " + nick);
         }
       }.bind(this)];
     }

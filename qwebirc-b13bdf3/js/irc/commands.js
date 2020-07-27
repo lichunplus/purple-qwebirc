@@ -194,7 +194,7 @@ qwebirc.irc.Commands = new Class({
     schans.forEach(function(x) {
       if(!this.parentObject.isChannel(x)) {
         x = "#" + x;
-        warn = true;
+        /* warn = true; */
       }
       fchans.push(x);
     }.bind(this));

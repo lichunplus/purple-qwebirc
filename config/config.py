@@ -28,7 +28,7 @@ IRCSERVER, IRCPORT = "localhost", 6667
 
 # OPTION: REALNAME
 #         The realname field of IRC clients will be set to this value.
-REALNAME = "http://smb.cn/"
+REALNAME = "https://pubchat.net/"
 
 # OPTION: IDENT
 #        ident to use on irc, possible values include:
@@ -38,7 +38,7 @@ REALNAME = "http://smb.cn/"
 #          IDENT = IDENT_HEX
 #        - the literal value IDENT_NICKNAME, this will use the users
 #          supplied nickname as their ident.
-IDENT = "webchat"
+IDENT = IDENT_HEX
 
 # OPTION: OUTGOING_IP
 #         The IP address to bind to when connecting to the IRC server.
@@ -73,7 +73,7 @@ IDENT = "webchat"
 #         - the literal value None, i.e. WEBIRC_MODE = None
 #           Send the IP and hostname in the realname field, overrides
 #          the REALNAME option.
-WEBIRC_MODE = None
+#WEBIRC_MODE = None
 
 # OPTION: WEBIRC_PASSWORD
 #         Used for WEBIRC_MODE webirc and cgiirc, see WEBIRC_MODE
@@ -91,12 +91,12 @@ WEBIRC_MODE = None
 # OPTION: BASE_URL
 #         URL that this qwebirc instance will be available at, add the
 #         port number if your instance runs on a port other than 80.
-BASE_URL = "http://smb.cn/"
+BASE_URL = "https://pubchat.net/"
 
 # OPTION: NETWORK_NAME
 #         The name of your IRC network, displayed throughout the
 #         application.
-NETWORK_NAME = "FooNet"
+NETWORK_NAME = ""
 
 # OPTION: LOGO_URL
 #         URL (relative or absolute) to your logo (max height 68 pixels).
@@ -124,7 +124,7 @@ CUSTOM_CSS="main.css"
 
 # OPTION: APP_TITLE
 #         The title of the application in the web browser.
-APP_TITLE = NETWORK_NAME + " Room"
+APP_TITLE = "pubchat"
 
 # NICKNAME VALIDATION OPTIONS
 # ---------------------------------------------------------------------

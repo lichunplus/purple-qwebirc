@@ -142,7 +142,8 @@ qwebirc.ui.QUI = new Class({
     var inputbox = new Element("input");
     this.addEvent("signedOn", function(client) {
       this.getStatusWindow(client).lines.removeClass("spinner");
-      inputbox.placeholder = "chat here! you can also use commands, like /JOIN";
+      inputbox.placeholder = "请在此处输入内容，按ENTER键发送。";
+      /* inputbox.placeholder = "chat here! you can also use commands, like /JOIN"; */
       var d = function() { inputbox.addClass("input-flash"); }.delay(250);
       var d = function() { inputbox.removeClass("input-flash"); }.delay(500);
       var d = function() { inputbox.addClass("input-flash"); }.delay(750);
@@ -504,7 +505,8 @@ qwebirc.ui.QUI.Window = new Class({
         return;
       /*}*/
     }
-    var newTopic = prompt("Change topic of " + this.name + " to:", this.topic.topicText);
+    var newTopic = prompt("请输入频道 " + this.name + " 的主题:", this.topic.topicText);
+   /* var newTopic = prompt("Change topic of " + this.name + " to:", this.topic.topicText); */
     if(newTopic === null)
       return;
 
@@ -632,7 +634,7 @@ qwebirc.ui.QUI.Window = new Class({
       if (topic) {
         this.parent(topic, t);
       } else {
-        t.appendChild(document.createTextNode("(no topic set)"));
+        t.appendChild(document.createTextNode("*此频道未填写主题信息*"));
       }
     }
 

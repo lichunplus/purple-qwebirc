@@ -1,10 +1,11 @@
 qwebirc.ui.UI_COMMANDS_P1 = [
-  ["Options", "options"],
-  ["Add webchat to your site", "embedded"]
+  ["设置", "options"],
+  /* ["Options", "options"], */
+  /* ["Add webchat to your site", "embedded"] */
 ];
 
 qwebirc.ui.UI_COMMANDS_P2 = [
-  ["About qwebirc", "about"]
+  /* ["About qwebirc", "about"] */
 ];
 
 qwebirc.ui.MENU_ITEMS = function() {
@@ -43,27 +44,27 @@ qwebirc.ui.MENU_ITEMS = function() {
   };
   
   return [
-    {
+    /*{
       text: "whois", 
       fn: command("whois"),
       predicate: true
-    },
+    },*/
     {
-      text: "query",
+      text: "私信",
       fn: command("query"),
       predicate: true
     },
-    {
+    /* {
       text: "slap",
       fn: function(nick) { this.client.exec("/ME slaps " + nick + " around a bit with a large fishbot"); },
       predicate: true
-    },
+    }, */
     {
-      text: "kick", /* TODO: disappear when we're deopped */
+      text: "踢出频道", /* TODO: disappear when we're deopped */
       fn: function(nick) { this.client.exec("/KICK " + nick + " wibble"); },
       predicate: isOpped
     },
-    {
+    /* {
       text: "op",
       fn: command("op"),
       predicate: compose(isOpped, invert(targetOpped))
@@ -92,6 +93,6 @@ qwebirc.ui.MENU_ITEMS = function() {
       text: "unignore",
       fn: command("unignore"),
       predicate: isIgnored
-    }
+    } */
   ];
 }();

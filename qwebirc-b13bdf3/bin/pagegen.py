@@ -84,7 +84,7 @@ def producehtml(name, debug):
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <base />
-  <title>%s (qwebirc)</title>
+  <title>%s</title>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
   <meta name="mobile-web-app-capable" content="yes" />

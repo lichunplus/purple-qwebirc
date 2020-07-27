@@ -70,7 +70,8 @@ qwebirc.ui.Flasher = new Class({
     var flashA = function() {
       this.hideFavIcon();
       this.canUpdateTitle = false;
-      document.title = "Activity!";
+      /* document.title = "Activity!"; */
+      document.title = "新消息！";
       
       this.flasher = flashB.delay(500);
     }.bind(this);

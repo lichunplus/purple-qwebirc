@@ -14,8 +14,8 @@ qwebirc.ui.supportsFocus = function() {
  * settableByURL...
  */
 qwebirc.config.DEFAULT_OPTIONS = [
-  [1, "BEEP_ON_MENTION", "Beep on activity", true],
-  [16, "NOTIFICATIONS", "Emit HTML5 notifications on activity", false, {
+  [1, "BEEP_ON_MENTION", "接收到新消息时蜂鸣", true],
+  [16, "NOTIFICATIONS", "收到新消息时发出HTML5通告", false, {
     enabled: function() {
       if(!("Notification" in window))
         return [false, false]; /* [disabled, default_value] */
@@ -26,29 +26,29 @@ qwebirc.config.DEFAULT_OPTIONS = [
         ui.setNotifications(value);
     }
   }],
-  [7, "FLASH_ON_MENTION", "Flash titlebar when nick mentioned or on query activity", true, {
+  [7, "FLASH_ON_MENTION", "被提及时修改网页标题", true, {
     enabled: qwebirc.ui.supportsFocus
   }],
-  [2, "DEDICATED_MSG_WINDOW", "Send privmsgs to dedicated messages window", false],
-  [4, "DEDICATED_NOTICE_WINDOW", "Send notices to dedicated message window", false],
-  [3, "NICK_OV_STATUS", "Show status (@/+) before nicknames in channel lines", true],
+  /* [2, "DEDICATED_MSG_WINDOW", "发送私信到专用消息窗口", false], */
+  /* [4, "DEDICATED_NOTICE_WINDOW", "发送通告到专用消息窗口", false], */
+  /* [3, "NICK_OV_STATUS", "设置昵称前缀(@/+)", false], */
   /* 5 and 6 are reserved */
-  [8, "LASTPOS_LINE", "Show a last position indicator for each window", true, {
+  /* [8, "LASTPOS_LINE", "Show a last position indicator for each window", true, {
     enabled: qwebirc.ui.supportsFocus
-  }],
-  [9, "NICK_COLOURS", "Automatically colour nicknames", false],
-  [10, "HIDE_JOINPARTS", "Hide JOINS/PARTS/QUITS", false],
-  [11, "STYLE_HUE", "Adjust user interface hue", function(ui) {
+  }], */
+  [9, "NICK_COLOURS", "自动设置昵称颜色", true],
+  [10, "HIDE_JOINPARTS", "隐藏用户加入和退出的消息", false],
+  [11, "STYLE_HUE", "颜色校准", function(ui) {
     return {class_: qwebirc.config.HueOption, default_: ui.__styleValues.hue};
   }, {
     applyChanges: function(value, ui) {
       ui.setModifiableStylesheetValues({hue: value});
     }
   }],
-  [12, "QUERY_ON_NICK_CLICK", "Query on nickname click in channel", false],
-  [13, "SHOW_NICKLIST", "Show nickname list in channels", qwebirc.util.deviceHasKeyboard()],
-  [14, "SHOW_TIMESTAMPS", "Show timestamps", true], /* we rely on the hue update */
-  [15, "SIDE_TABS", "Show tabs on the side", false, {
+  /* [12, "QUERY_ON_NICK_CLICK", "Query on nickname click in channel", false], */
+  [13, "SHOW_NICKLIST", "显示昵称列表栏", qwebirc.util.deviceHasKeyboard()],
+  [14, "SHOW_TIMESTAMPS", "显示时间戳", true], /* we rely on the hue update */
+  [15, "SIDE_TABS", "横竖屏切换", false, {
     enabled: function() {
       if(Browser.Engine.trident && Browser.Engine.version < 8)
         return [false, false]; /* [disabled, default_value] */
@@ -418,7 +418,8 @@ qwebirc.ui.OptionsPane = new Class({
     var r = FE("tr", tb);
     var cella = FE("td", r);
     var save = qwebirc.util.createInput("submit", cella);
-    save.value = "Save";
+    save.value = "保存";
+    /* save.value = "Save"; */
     
     save.addEvent("click", function() {
       this.save();
@@ -426,7 +427,8 @@ qwebirc.ui.OptionsPane = new Class({
     }.bind(this));
     
     var cancel = qwebirc.util.createInput("submit", cella);
-    cancel.value = "Cancel";
+    cancel.value = "取消";
+    /* cancel.value = "Cancel"; */
     cancel.addEvent("click", function() {
       this.cancel();
       this.fireEvent("close");
