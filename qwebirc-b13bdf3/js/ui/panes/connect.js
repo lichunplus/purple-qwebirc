@@ -226,6 +226,12 @@ qwebirc.ui.ConnectPane = new Class({
     if(chans == "#") /* sorry channel "#" :P */
       chans = "";
 
+    if(!nickname || !chans) {
+      alert("昵称和频道不能为空");
+      nick.focus();
+      return false;
+    }
+
     if(!nickname) {
       alert("You must supply a nickname.");
       nick.focus();

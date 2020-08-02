@@ -424,6 +424,12 @@ qwebirc.ui.StandardUI = new Class({
   aboutWindow: function() {
     this.addCustomWindow("About qwebirc", qwebirc.ui.AboutPane, "aboutpane", this.uiOptions);
   },
+  infoWindow: function() {
+    this.addCustomWindow("关于我们", qwebirc.ui.InfoPane, "infopane", this.uiOptions);
+  },
+  contactWindow: function() {
+    this.addCustomWindow("联系方式", qwebirc.ui.ContactPane, "contactpane", this.uiOptions);
+  },
   urlDispatcher: function(name, window) {
     if(name == "embedded")
       return ["a", this.embeddedWindow.bind(this)];

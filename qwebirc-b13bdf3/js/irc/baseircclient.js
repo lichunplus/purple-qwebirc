@@ -124,9 +124,11 @@ qwebirc.irc.BaseIRCClient = new Class({
     if(this.__signedOn)
       return true;
     
-    var newnick = params[1] + "_";
+    var newnick = params[1] + Math.floor(Math.random() * 1024 * 1024);
+    /* var newnick = params[1] + "_";
     if(newnick == this.lastnick)
       newnick = "qwebirc" + Math.floor(Math.random() * 1024 * 1024);
+    */
 
     this.send("NICK " + newnick);
     this.lastnick = newnick;

@@ -528,7 +528,7 @@ qwebirc.irc.IRCClient = new Class({
     }
   },
   userMode: function(modes) {
-    this.newServerLine("UMODE", {"m": modes, "n": this.nickname});
+    //this.newServerLine("UMODE", {"m": modes, "n": this.nickname});
   },
   channelNames: function(channel, names) {
     if(names.length == 0) {

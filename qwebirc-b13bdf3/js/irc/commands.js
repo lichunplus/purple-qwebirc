@@ -128,6 +128,12 @@ qwebirc.irc.Commands = new Class({
   cmd_ABOUT: [false, undefined, undefined, function(args) {
     this.newUIWindow("aboutWindow");
   }],
+  cmd_INFO: [false, undefined, undefined, function(args) {
+    this.newUIWindow("infoWindow");
+  }],
+  cmd_CONTACT: [false, undefined, undefined, function(args) {
+    this.newUIWindow("contactWindow");
+  }],
   cmd_QUOTE: [false, 1, 1, function(args) {
     this.send(args[0]);
   }],

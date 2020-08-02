@@ -13,8 +13,8 @@ qwebirc.ui.themes.ThemeControlCodeMap = {
 qwebirc.ui.themes.Purple = {
   "PREFIX": ["$C4==$O "],
   "SIGNON": ["登入成功!", true],
-  "CONNECTING": ["正在连接服务器, 请稍后...", true],
-  "CONNECT": ["登入中, 请稍后...", true],
+  "CONNECTING": ["正在连接服务器...", true],
+  "CONNECT": ["登入中...", true],
   "CONNECTED": ["登入成功!", true],
   "RAW": ["$m", true],
   "DISCONNECT": ["连接已断开: $m", true],

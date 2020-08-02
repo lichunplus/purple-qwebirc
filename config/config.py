@@ -119,7 +119,7 @@ CUSTOM_CSS="main.css"
 # OPTION: CUSTOM_MENU_ITEMS
 #         Adds custom URLs to the top left menu.
 #CUSTOM_MENU_ITEMS = [
-#  ["home", "/panes/home.html"],
+#  ["contact", "/panes/contact.html"],
 #]
 
 # OPTION: APP_TITLE

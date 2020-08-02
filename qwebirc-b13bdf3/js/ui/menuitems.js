@@ -1,11 +1,13 @@
 qwebirc.ui.UI_COMMANDS_P1 = [
   ["设置", "options"],
+  ["联系我们", "contact"],
+  ["关于我们", "info"],
   /* ["Options", "options"], */
   /* ["Add webchat to your site", "embedded"] */
 ];
 
 qwebirc.ui.UI_COMMANDS_P2 = [
-  /* ["About qwebirc", "about"] */
+  /* ["关于", "about"] */
 ];
 
 qwebirc.ui.MENU_ITEMS = function() {
