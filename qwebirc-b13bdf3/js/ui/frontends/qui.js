@@ -501,7 +501,7 @@ qwebirc.ui.QUI.Window = new Class({
     if(!this.client.nickOnChanHasPrefix(this.client.nickname, this.name, "@")) {
 /*      var cmodes = this.client.getChannelModes(channel);
       if(cmodes.indexOf("t")) {*/
-        alert("Sorry, you need to be a channel operator to change the topic!");
+        alert("仅支持管理员用户修改频道主题!");
         return;
       /*}*/
     }

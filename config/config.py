@@ -301,7 +301,7 @@ QTICKETKEY = "boo"
 # OPTION: AUTH_SERVICE
 #         Service that auth commands are sent to. Also used to check
 #         responses from said service.
-AUTH_SERVICE = "Q!TheQBot@CServe.quakenet.org"
+AUTH_SERVICE = ""
 
 # OPTION: AUTH_OK_REGEX
 #         JavaScript regular expression that should match when

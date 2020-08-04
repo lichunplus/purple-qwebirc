@@ -1,6 +1,6 @@
 function qwebirc_ui_onbeforeunload(e) { /* IE sucks */
   if(qwebirc.connected) {
-    var message = "This action will close all active IRC connections.";
+    var message = "此操作将关闭所有活动的连接。";
     var e = e || window.event;
     if(e)
       e.returnValue = message;
