@@ -8,7 +8,7 @@ qwebirc.ui.WINDOW_CONNECT =  0x10;
 qwebirc.ui.WINDOW_MESSAGES = 0x20;
 
 qwebirc.ui.CUSTOM_CLIENT = "custom";
-qwebirc.ui.DEFAULT_HUE = 210; /* nice blue */
+qwebirc.ui.DEFAULT_HUE = 150; /* nice blue */
 
 qwebirc.ui.BaseUI = new Class({
   Implements: [Events],
@@ -216,14 +216,20 @@ qwebirc.ui.BaseUI = new Class({
       IRC connection is made, else users are going to get
       tricked into getting themselves glined
     */
-  loginBox: function(callback, initialNickname, initialChannels, autoConnect, autoNick) {
+  loginBox: function(vhost, callback, initialNickname, initialChannels, autoConnect, autoNick) {
     this.postInitialize();
 
     /* this.addCustomWindow("Connect", qwebirc.ui.ConnectPane, "connectpane", { */
-    this.addCustomWindow("主页", qwebirc.ui.ConnectPane, "connectpane", {
-      initialNickname: initialNickname, initialChannels: initialChannels, autoConnect: autoConnect, callback: callback, autoNick: autoNick,
-      uiOptions: this.options
-    }, qwebirc.ui.WINDOW_CONNECT);
+    if(vhost == "info") {
+        this.addCustomWindow("关于", qwebirc.ui.InfoPane, "infopane", this.uiOptions, qwebirc.ui.WINDOW_CONNECT);
+    } else if(vhost == "contact") {
+        this.addCustomWindow("联系方式", qwebirc.ui.ContactPane, "contactpane", this.uiOptions, qwebirc.ui.WINDOW_CONNECT);
+    } else {
+        this.addCustomWindow("主页", qwebirc.ui.ConnectPane, "connectpane", {
+          initialNickname: initialNickname, initialChannels: initialChannels, autoConnect: autoConnect, callback: callback, autoNick: autoNick,
+          uiOptions: this.options
+        }, qwebirc.ui.WINDOW_CONNECT);
+    }
   },
   focusChange: function(newValue) {
     var window_ = this.getActiveWindow();
@@ -425,7 +431,7 @@ qwebirc.ui.StandardUI = new Class({
     this.addCustomWindow("About qwebirc", qwebirc.ui.AboutPane, "aboutpane", this.uiOptions);
   },
   infoWindow: function() {
-    this.addCustomWindow("关于我们", qwebirc.ui.InfoPane, "infopane", this.uiOptions);
+    this.addCustomWindow("关于", qwebirc.ui.InfoPane, "infopane", this.uiOptions);
   },
   contactWindow: function() {
     this.addCustomWindow("联系方式", qwebirc.ui.ContactPane, "contactpane", this.uiOptions);

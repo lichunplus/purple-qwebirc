@@ -22,7 +22,7 @@ qwebirc.ui.themes.Purple = {
   "SERVERNOTICE": ["$m", true],
   "JOIN": ["${$N$} 加入频道 $c", true],
   "OURJOIN": ["${$N$} 加入频道 $c", true],
-  "PART": ["${$N$} 离开频道 $c [$m]", true],
+  "PART": ["${$N$} 离开频道 $c", true],
   "KICK": ["${$v$} 被管理员 ${$N$} 踢出频道 $c", true],
   "MODE": ["mode/$c [$m] by ${$N$}", true],
   "QUIT": ["${$N$} 离开频道 $c", true],

@@ -36,6 +36,7 @@ qwebirc.ui.Interface = new Class({
   },
   initialize: function(element, ui, options) {
     this.setOptions(options);
+    var extractrequest;
     var extractHost = function() {
       var uri = document.location.href;
 
@@ -85,6 +86,9 @@ qwebirc.ui.Interface = new Class({
       
       if(this.options.searchURL) {
         var args = qwebirc.util.parseURI(String(document.location));
+        extractrequest = args.get("request");
+        console.log(args);
+        console.log(extractrequest);
         this.options.hue = this.getHueArg(args, "");
         this.options.saturation = this.getSaturationArg(args, "");
         this.options.lightness = this.getLightnessArg(args, "");
@@ -162,7 +166,7 @@ qwebirc.ui.Interface = new Class({
       if(usingAutoNick && autoConnect)
         inick = this.options.initialNickname;
       
-      var details = ui_.loginBox(callback, inick, ichans, autoConnect, usingAutoNick);
+      var details = ui_.loginBox(extractrequest, callback, inick, ichans, autoConnect, usingAutoNick);
     }.bind(this));
   },
   getHueArg: function(args, t) {
