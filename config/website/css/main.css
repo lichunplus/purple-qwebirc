@@ -14,7 +14,7 @@ form {
 
 body {
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 11px;
+    #font-size: 11px;
     color: #555;
     margin: 5px;
     background-color: #fff;
@@ -37,7 +37,7 @@ li {
     font-size: 11px;
     color: #555;
 }
-
+/*
 a:link {
     font-size: 11px;
     color: #555;
@@ -67,7 +67,7 @@ a:active {
     font-weight: normal;
     text-decoration: underline;
 }
-
+*/
 .tekst {
     font-size: 11px;
     font-weight: normal;
@@ -160,7 +160,28 @@ td.sponsored {
     font-weight: normal;
 }
 
-    
+.normal_link:link {
+    font-size: 11px;
+    color: #555;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: normal;
+}
+.normal_link:visited {
+    font-size: 11px;
+    font-style: normal;
+    color: #555;
+    text-decoration: none;
+    font-weight: normal;
+}
+.normal_link:hover {
+    font-size: 11px;
+    font-style: normal;
+    color: #8bd500;
+    text-decoration: none;
+    font-weight: normal;
+}
+
 .header {
     font-size: 13px;
     font-style: normal;

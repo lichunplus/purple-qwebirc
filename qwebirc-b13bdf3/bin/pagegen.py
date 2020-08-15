@@ -81,7 +81,7 @@ def producehtml(name, debug):
   customjs = ui.get("customjs", "")
 
   return """%s
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
 <head>
   <base />
   <title>%s</title>

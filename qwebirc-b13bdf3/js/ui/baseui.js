@@ -8,7 +8,7 @@ qwebirc.ui.WINDOW_CONNECT =  0x10;
 qwebirc.ui.WINDOW_MESSAGES = 0x20;
 
 qwebirc.ui.CUSTOM_CLIENT = "custom";
-qwebirc.ui.DEFAULT_HUE = 150; /* nice blue */
+qwebirc.ui.DEFAULT_HUE = 50; /* nice orange */
 
 qwebirc.ui.BaseUI = new Class({
   Implements: [Events],
