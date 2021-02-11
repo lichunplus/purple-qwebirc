@@ -37,7 +37,7 @@ qwebirc.config.DEFAULT_OPTIONS = [
     enabled: qwebirc.ui.supportsFocus
   }], */
   [9, "NICK_COLOURS", "自动设置昵称颜色", true],
-  [10, "HIDE_JOINPARTS", "隐藏用户加入和退出的消息", false],
+  [10, "HIDE_JOINPARTS", "隐藏用户加入和退出的消息", true],
   [11, "STYLE_HUE", "颜色校准", function(ui) {
     return {class_: qwebirc.config.HueOption, default_: ui.__styleValues.hue};
   }, {

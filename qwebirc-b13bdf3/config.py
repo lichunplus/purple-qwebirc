@@ -110,18 +110,6 @@ NETWORK_NAME = ""
 #         Must be in the css directory.
 CUSTOM_CSS="main.css"
 
-# OPTION: ANALYTICS_HTML
-#         If you have an analytics service, you can paste the HTML
-#         between the triple quotes.
-#ANALYTICS_HTML = """
-#"""
-
-# OPTION: CUSTOM_MENU_ITEMS
-#         Adds custom URLs to the top left menu.
-#CUSTOM_MENU_ITEMS = [
-#  ["contact", "/panes/contact.html"],
-#]
-
 # OPTION: APP_TITLE
 #         The title of the application in the web browser.
 APP_TITLE = "pubchat"
@@ -181,12 +169,6 @@ ADMIN_ENGINE_HOSTS = ["127.0.0.1"]
 
 # EXECUTION OPTIONS
 # ---------------------------------------------------------------------
-#
-# OPTION: ARGS (optional)
-#         These arguments will be used as if qwebirc was run directly
-#         with them, see run.py --help for a list of options.
-#ARGS = "-n -p 3989"
-
 # OPTION: SYSLOG_ADDR (optional)
 #         Used in conjunction with util/syslog.py and -s option.
 #         This option specifies the address and port that syslog

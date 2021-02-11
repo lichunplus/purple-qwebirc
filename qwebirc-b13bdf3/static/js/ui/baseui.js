@@ -293,12 +293,10 @@ qwebirc.ui.StandardUI = new Class({
     var r = [];
     var seenAbout = null;
 
-    for(var i=0;i<qwebirc.ui.UI_COMMANDS_P1.length;i++)
-      r.push([true, qwebirc.ui.UI_COMMANDS_P1[i]]);
+    for(var i=0;i<qwebirc.ui.UI_COMMANDS.length;i++)
+      r.push([true, qwebirc.ui.UI_COMMANDS[i]]);
     for(var i=0;i<options.customMenuItems.length;i++)
       r.push([false, options.customMenuItems[i]]);
-    for(var i=0;i<qwebirc.ui.UI_COMMANDS_P2.length;i++)
-      r.push([true, qwebirc.ui.UI_COMMANDS_P2[i]]);
 
     var r2 = []
     for(var i=0;i<r.length;i++) {
