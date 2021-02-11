@@ -10,7 +10,8 @@ ExecStart=/usr/bin/python2.7 /usr/local/purple-qwebirc/run.py --syslog --pidfile
 PIDFile=/tmp/qwebirc.pid
 ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
-Restart=on-failure
+Restart=always
+StartLimitInterval=0
 User=qwebirc
 Group=purple
 
