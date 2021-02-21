@@ -22,8 +22,9 @@
                 <tr>
                   <td><label>网络:</label></td>
                   <td>
-                  <select>
-                    <option>OFTC</option>
+                  <select name="network">
+                    <option value="irc.freenode.net">Freenode</option>
+                    <option value="irc.oftc.net">OFTC</option>
                   </select>
                   </td>
                 </tr>
@@ -43,20 +44,6 @@
                 </tr>
               </table>
             </form>
-          </td>
-        </tr>
-        <tr class="tr2" name="confirmbox" style="display: none">
-          <td>
-            <table class="qwebirc-loginbox tr1">
-              <tr>
-                <td>
-                  To connect to <span name="networkname"></span> IRC and join <span name="prettychannels"></span><span name="nickselected" style="display: none"> as <b name="nickname"></b></span> click 'Join chat'.
-                </td>
-              </tr>
-              <tr class="tr2" name="connectbutton" style="display: none">
-                <td><input type="submit" value="Join chat" name="connect" /></td>
-              </tr>
-            </table>
           </td>
         </tr>
       </table>

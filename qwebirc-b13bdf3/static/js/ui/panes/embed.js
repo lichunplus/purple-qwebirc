@@ -170,7 +170,6 @@ qwebirc.ui.EmbedWizard = new Class({
       middle: changeOptions
     });
     
-    var autoconnect = this.newRadio(promptdiv, "Connect without displaying the dialog.", "prompt", true);
     this.connectdialogr = this.newRadio(promptdiv, "Show the connect dialog.", "prompt");
     
     this.nicknameBox = new Element("input");

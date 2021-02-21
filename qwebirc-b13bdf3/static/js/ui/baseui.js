@@ -216,7 +216,7 @@ qwebirc.ui.BaseUI = new Class({
       IRC connection is made, else users are going to get
       tricked into getting themselves glined
     */
-  loginBox: function(vhost, callback, initialNickname, initialChannels, autoConnect, autoNick) {
+  loginBox: function(vhost, callback, initialNickname, initialChannels, autoNick) {
     this.postInitialize();
 
     /* this.addCustomWindow("Connect", qwebirc.ui.ConnectPane, "connectpane", { */
@@ -226,7 +226,7 @@ qwebirc.ui.BaseUI = new Class({
         this.addCustomWindow("联系方式", qwebirc.ui.ContactPane, "contactpane", this.uiOptions, qwebirc.ui.WINDOW_CONNECT);
     } else {
         this.addCustomWindow("主页", qwebirc.ui.ConnectPane, "connectpane", {
-          initialNickname: initialNickname, initialChannels: initialChannels, autoConnect: autoConnect, callback: callback, autoNick: autoNick,
+          initialNickname: initialNickname, initialChannels: initialChannels, callback: callback, autoNick: autoNick,
           uiOptions: this.options
         }, qwebirc.ui.WINDOW_CONNECT);
     }

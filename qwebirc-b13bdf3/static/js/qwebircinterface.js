@@ -82,8 +82,7 @@ qwebirc.ui.Interface = new Class({
 
       var inick = null;
       var ichans = this.options.initialChannels;
-      var autoConnect = false;
-      
+
       if(this.options.searchURL) {
         var args = qwebirc.util.parseURI(String(document.location));
         extractrequest = args.get("request");
@@ -105,13 +104,8 @@ qwebirc.ui.Interface = new Class({
         
         if($defined(url)) {
           ichans = this.parseIRCURL(url);
-          if($defined(chans) && chans != "")
-            canAutoConnect = true;
         } else {
           chans = args.get("channels");
-
-          var canAutoConnect = false;
-        
           if(chans) {
             var cdata = chans.split(" ");
           
@@ -127,7 +121,6 @@ qwebirc.ui.Interface = new Class({
             }
             cdata[0] = chans2.join(",");
             ichans = cdata.join(" ");
-            canAutoConnect = true;
           }
         }
         
@@ -136,37 +129,12 @@ qwebirc.ui.Interface = new Class({
           
         if(args.contains("randomnick") && args.get("randomnick") == 1)
           inick = this.options.initialNickname;
-
-        /* we only consider autoconnecting if the nick hasn't been supplied, or it has and it's not "" */
-        if(canAutoConnect && (!$defined(inick) || ($defined(inick) && (inick != "")))) {
-          var p = args.get("prompt");
-          var pdefault = false;
-          
-          if(!$defined(p) || p == "") {
-            pdefault = true;
-            p = false;
-          } else if(p == "0") {
-            p = false;
-          } else {
-            p = true;
-          }
-          
-          /* autoconnect if we have channels and nick but only if prompt != 1 */
-          if($defined(inick) && !p) {
-            autoConnect = true;
-          } else if(!pdefault && !p) { /* OR if prompt=0, but not prompt=(nothing) */
-            autoConnect = true;
-          }
-        }
       }
   
       var ui_ = new ui($(element), new qwebirc.ui.Theme(this.options.theme), this.options);
 
       var usingAutoNick = !$defined(nick);
-      if(usingAutoNick && autoConnect)
-        inick = this.options.initialNickname;
-      
-      var details = ui_.loginBox(extractrequest, callback, inick, ichans, autoConnect, usingAutoNick);
+      var details = ui_.loginBox(extractrequest, callback, inick, ichans, usingAutoNick);
     }.bind(this));
   },
   getHueArg: function(args, t) {
