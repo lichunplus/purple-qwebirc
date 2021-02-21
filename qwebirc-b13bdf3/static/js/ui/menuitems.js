@@ -1,7 +1,7 @@
 qwebirc.ui.UI_COMMANDS = [
   ["设置", "options"],
-  ["联系我们", "contact"],
-  ["关于", "info"],
+  /* ["联系我们", "contact"], */
+  /* ["关于", "info"], */
   /* ["Options", "options"], */
   /* ["Add webchat to your site", "embedded"] */
   /* ["关于", "about"] */
