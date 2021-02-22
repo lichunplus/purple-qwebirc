@@ -2,6 +2,7 @@ qwebirc.irc.IRCClient = new Class({
   Extends: qwebirc.irc.BaseIRCClient,
   options: {
     nickname: "qwebirc",
+    network: "localhost",
     autojoin: "",
     maxnicks: 10
   },
@@ -9,6 +10,8 @@ qwebirc.irc.IRCClient = new Class({
     this.parent(options);
 
     this.ui = ui;
+
+    this.network = this.options.network;
 
     this.prefixes = "@+";
     this.modeprefixes = "ov";

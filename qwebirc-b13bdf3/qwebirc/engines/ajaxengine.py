@@ -215,6 +215,11 @@ class AJAXEngine(resource.Resource):
       raise AJAXException, "Nickname not supplied."
     nick = ircclient.irc_decode(nick[0])
 
+    network = request.args.get("network")
+    if not network:
+      raise AJAXException, "Network not supplied."
+    network = ircclient.irc_decode(network[0])
+
     password = request.args.get("password")
     if password is not None:
       password = ircclient.irc_decode(password[0])
@@ -245,7 +250,7 @@ class AJAXEngine(resource.Resource):
     self.__connect_hit()
 
     def proceed(hostname):
-      kwargs = dict(nick=nick, ident=ident, ip=ip, realname=realname, perform=perform, hostname=hostname)
+      kwargs = dict(nick=nick, ident=ident, ip=ip, realname=realname, perform=perform, hostname=hostname, network=network)
       if password is not None:
         kwargs["password"] = password
         

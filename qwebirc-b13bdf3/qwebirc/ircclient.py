@@ -154,9 +154,9 @@ def createIRC(*args, **kwargs):
   if CONNECTION_RESOLVER is None:
     if hasattr(config, "SSLPORT"):
       from twisted.internet import ssl
-      reactor.connectSSL(config.IRCSERVER, config.SSLPORT, f, ssl.ClientContextFactory(), **tcpkwargs)
+      reactor.connectSSL(kwargs["network"], config.SSLPORT, f, ssl.ClientContextFactory(), **tcpkwargs)
     else:
-      reactor.connectTCP(config.IRCSERVER, config.IRCPORT, f, **tcpkwargs)
+      reactor.connectTCP(kwargs["network"], config.IRCPORT, f, **tcpkwargs)
     return f
 
   def callback(result):
@@ -165,7 +165,7 @@ def createIRC(*args, **kwargs):
   def errback(err):
     f.clientConnectionFailed(None, err) # None?!
 
-  d = CONNECTION_RESOLVER.lookupService(config.IRCSERVER, (1, 3, 11))
+  d = CONNECTION_RESOLVER.lookupService(kwargs["network"], (1, 3, 11))
   d.addCallbacks(callback, errback)
   return f
 

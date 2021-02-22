@@ -7,6 +7,7 @@ qwebirc.irc.IRCConnection = new Class({
   Implements: [Events, Options],
   options: {
     initialNickname: "ircconnX",
+    initialNetwork: "localhost",
     minTimeout: 45000,
     maxTimeout: 5 * 60000,
     timeoutIncrement: 10000,
@@ -25,6 +26,7 @@ qwebirc.irc.IRCConnection = new Class({
     this.setOptions(options);
     
     this.initialNickname = this.options.initialNickname;
+    this.initialNetwork = this.options.initialNetwork;
     
     this.counter = 0;
     this.disconnected = false;
@@ -420,6 +422,7 @@ qwebirc.irc.IRCConnection = new Class({
     }.bind(this));
 
     var postdata = "nick=" + encodeURIComponent(this.initialNickname);
+    postdata+="&network=" + encodeURIComponent(this.initialNetwork);
     if($defined(this.options.serverPassword))
       postdata+="&password=" + encodeURIComponent(this.options.serverPassword);
     var loggedin = qwebirc.auth.loggedin(false);

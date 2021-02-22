@@ -17,7 +17,8 @@ qwebirc.irc.RegisteredCTCPs = new QHash({
 qwebirc.irc.BaseIRCClient = new Class({
   Implements: [Options, Events],
   options: {
-    nickname: "qwebirc"
+    nickname: "qwebirc",
+    network: "localhost"
   },
   initialize: function(options) {
     this.setOptions(options);
@@ -26,6 +27,7 @@ qwebirc.irc.BaseIRCClient = new Class({
 
     this.nickname = this.options.nickname;
     this.lowerNickname = this.toIRCLower(this.nickname);    
+    this.network = this.options.network;
 
     this.__signedOn = false;
     this.pmodes = new QHash({b: qwebirc.irc.PMODE_LIST, l: qwebirc.irc.PMODE_SET_ONLY, k: qwebirc.irc.PMODE_SET_UNSET, o: qwebirc.irc.PMODE_SET_UNSET, v: qwebirc.irc.PMODE_SET_UNSET});
@@ -35,6 +37,7 @@ qwebirc.irc.BaseIRCClient = new Class({
 
     this.connection = new qwebirc.irc.IRCConnection({
       initialNickname: this.nickname,
+      initialNetwork: this.network,
       onRecv: this.dispatch.bind(this),
       serverPassword: this.options.serverPassword
     });

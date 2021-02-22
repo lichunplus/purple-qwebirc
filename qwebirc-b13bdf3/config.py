@@ -13,13 +13,10 @@ from qwebirc.config_options import *
 
 # IRC OPTIONS
 # ---------------------------------------------------------------------
-#
-# OPTION: IRCSERVER
-#         Hostname (or IP address) of IRC server to connect to.
 # OPTION: IRCPORT
 #         Port of IRC server to connect to.
 #IRCSERVER, IRCPORT = "irc.myserver.com", 6667
-IRCSERVER, IRCPORT = "irc.oftc.net", 6667
+IRCPORT = 6667
 
 # OPTION: SSLPORT
 #         SSL port of IRC server to connect to.
