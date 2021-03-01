@@ -12,8 +12,6 @@ ExecReload=/bin/kill -HUP $MAINPID
 KillMode=process
 Restart=always
 StartLimitInterval=0
-User=qwebirc
-Group=purple
 
 [Install]
 WantedBy=multi-user.target
