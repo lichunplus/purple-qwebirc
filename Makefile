@@ -17,9 +17,9 @@ help:
 	@echo "       make clean"
 
 rpm: all
-	install -d -m 0755 ${ROOTFS}/usr/local/
-	cp -r ${BUILD_DIR} ${ROOTFS}/usr/local/${NAME}
-	install -d -m 0755 ${ROOTFS}/usr/lib/systemd/system
+	mkdir -p ${ROOTFS}/usr/local/${NAME}
+	cp -r ${BUILD_DIR}/* ${ROOTFS}/usr/local/${NAME}/
+	mkdir -p ${ROOTFS}/usr/lib/systemd/system
 	cp ./config/qwebirc.service ${ROOTFS}/usr/lib/systemd/system/
 	rpmbuild --define '_topdir     $(RPMBUILD_DIR)'                   \
              --define 'rootfs      $(ROOTFS)'                         \
@@ -27,7 +27,7 @@ rpm: all
              --define 'pkgversion  $(VERSION)'                        \
              --define 'pkgrelease  $(RELEASE)'                        \
              -bb config/rpm.spec
-	cp -rf $(RPMBUILD_DIR)/RPMS/x86_64/*.rpm $(RPM_PKGNAME)
+	cp $(RPMBUILD_DIR)/RPMS/x86_64/*.rpm $(RPM_PKGNAME)
 
 clean:
 	@rm -rf ${BUILD_DIR} ${ROOTFS} ${RPMBUILD_DIR}

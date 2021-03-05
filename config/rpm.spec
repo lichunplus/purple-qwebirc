@@ -17,7 +17,7 @@ A part of Purple Project
 
 %install
 #This generally involves the equivalent of a "make install".
-cp -rf %{rootfs}/* $RPM_BUILD_ROOT/
+cp -r %{rootfs}/* $RPM_BUILD_ROOT/
 
 %check
 
@@ -30,6 +30,7 @@ cp -rf %{rootfs}/* $RPM_BUILD_ROOT/
 
 %preun
 %systemd_preun qwebirc.service
+rm -f %{_usr}/local/purple-qwebirc/twisted/plugins/dropin.cache 
 
 #postun
 /bin/systemctl daemon-reload >/dev/null 2>&1 || :
@@ -42,4 +43,5 @@ fi
 %files
 %defattr(-,root,root,-)
 %{_unitdir}/qwebirc.service
-%{_usr}/local/*
+%dir %{_usr}/local/%{pkgname}
+%{_usr}/local/%{pkgname}/*
