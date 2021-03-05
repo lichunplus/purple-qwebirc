@@ -48,7 +48,7 @@
                         <table width="557" cellspacing="3">
                             <tr><td><p>欢迎来到易谈网的官方网站。</p></td></tr>
                             <tr><td><p>在这里，您将能够很轻松地找到你感兴趣的主题交流频道，并加入他们一起讨论。</p></td></tr>
-                            <tr><td><p>如果您喜欢这样的交流方式，我们希望您长期关注并推荐好友一起加入感兴趣的频道，认识更多志同道合的朋友。</p></td></tr>
+                            <tr><td><p>WEBIRC。</p></td></tr>
   <tr>
     <td class="collapse">
       <table class="qwebirc-loginbox collapse" name="connectroot">
@@ -63,12 +63,28 @@
           </td>
         </tr>
         <tr class="tr1" name="nologologinheader" style="display: none">
-          <td>输入昵称和频道加入讨论吧。</td>
+          <td>&nbsp;&nbsp;</td>
         </tr>
         <tr class="tr2" name="loginbox" style="display: none">
           <td>
             <form>
               <table>
+                <tr>
+                  <td><label>网络:</label></td>
+                  <td>
+                  <select name="network">
+                    <option value="127.0.0.1">Pubchat</option>
+                    <option value="irc.freenode.net">Freenode</option>
+                    <option value="irc.oftc.net">OFTC</option>
+                    <option value="open.ircnet.net">IRCnet</option>
+                    <option value="irc.efnet.org">EFNet</option>
+                    <option value="irc.undernet.org">Undernet</option>
+                    <option value="irc.dal.net">DALnet</option>
+                    <option value="irc.quakenet.org">QuakeNet</option>
+                    <option value="irc.rizon.net">Rizon</option>
+                  </select>
+                  </td>
+                </tr>
                 <tr>
                   <td><label for="loginnickname">昵称:</label></td>
                   <td><input type="text" name="nickname" id="loginnickname"/></td>
@@ -85,20 +101,6 @@
                 </tr>
               </table>
             </form>
-          </td>
-        </tr>
-        <tr class="tr2" name="confirmbox" style="display: none">
-          <td>
-            <table class="qwebirc-loginbox tr1">
-              <tr>
-                <td>
-                  To connect to <span name="networkname"></span> IRC and join <span name="prettychannels"></span><span name="nickselected" style="display: none"> as <b name="nickname"></b></span> click 'Join chat'.
-                </td>
-              </tr>
-              <tr class="tr2" name="connectbutton" style="display: none">
-                <td><input type="submit" value="Join chat" name="connect"/></td>
-              </tr>
-            </table>
           </td>
         </tr>
       </table>
